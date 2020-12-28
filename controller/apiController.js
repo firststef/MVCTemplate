@@ -20,7 +20,13 @@ class ApiController {
     }
 
     /* Api callbacks */
-    func1(){
+    func1(req, res){
+        const parsedUrl = url.parse(req.url, true);
+        this.resolve(res, this.doSomethingfunc(parsedUrl.query.parameter), 'text/json');
+    }
+
+    doSomethingfunc(str){
+        return 'solved';
     }
 }
 
